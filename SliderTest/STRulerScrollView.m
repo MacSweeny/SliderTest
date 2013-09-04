@@ -17,6 +17,8 @@
 
 #import "STRulerScrollView.h"
 
+#import "STRulerImage.h"
+
 @interface STRulerScrollView()
 
 @property (nonatomic, strong) UIImageView *imageView;
@@ -33,11 +35,11 @@
         
         // set subviews...
         UIView *leftOffsetView = [[UIView alloc] init];
-        [leftOffsetView setBackgroundColor:[UIColor purpleColor]];
+        [leftOffsetView setBackgroundColor:[UIColor clearColor]];
         [scrollView addSubview:leftOffsetView];
         
         UIView *rightOffsetView = [[UIView alloc] init];
-        [rightOffsetView setBackgroundColor:[UIColor blueColor]];
+        [rightOffsetView setBackgroundColor:[UIColor clearColor]];
         [scrollView addSubview:rightOffsetView];
         
         self.imageView = [[UIImageView alloc] init];
@@ -105,6 +107,12 @@
         
     }
     return self;
+}
+
+- (void)displayRulerWithStart:(int)start end:(int)end height:(CGFloat)height {
+    UIImage *image = [STRulerImage rulerImageWithStart:start end:end height:height];
+    [self.imageView setImage:image];
+    [self updateConstraints];
 }
 
 - (void)setImageWithName:(NSString *)imageName {

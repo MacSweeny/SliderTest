@@ -8,7 +8,7 @@
 
 #import "STViewController.h"
 
-@interface STViewController ()
+@interface STViewController () <UIScrollViewDelegate>
 
 @end
 
@@ -16,18 +16,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.rulerScrollView.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-- (IBAction)otherButtonUp:(id)sender {
-    [self.rulerScrollView setImageWithName:@"yellow-ruler.png"];
+- (IBAction)rulerButtonUp:(id)sender {
+    // [self.rulerScrollView setImageWithName:@"ruler-image.jpeg"];
+    CGFloat height = self.rulerScrollView.frame.size.height;
+    [self.rulerScrollView displayRulerWithStart:0 end:2999 height:height];
 }
 
-- (IBAction)rulerButtonUp:(id)sender {
-    [self.rulerScrollView setImageWithName:@"ruler-image.jpeg"];
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    int value = self.rulerScrollView. contentOffset.x;
+    self.valueLabel.text = [NSString stringWithFormat:@"%i", value];
 }
 
 @end

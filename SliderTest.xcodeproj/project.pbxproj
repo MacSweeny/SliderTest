@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A112524017D7A0A2005081B6 /* STRulerImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A112523F17D7A0A2005081B6 /* STRulerImage.m */; };
 		A17C0FFF17D66F4E006AE210 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A17C0FFE17D66F4E006AE210 /* Foundation.framework */; };
 		A17C100117D66F4E006AE210 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A17C100017D66F4E006AE210 /* CoreGraphics.framework */; };
 		A17C100317D66F4E006AE210 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A17C100217D66F4E006AE210 /* UIKit.framework */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A112523E17D7A0A2005081B6 /* STRulerImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STRulerImage.h; sourceTree = "<group>"; };
+		A112523F17D7A0A2005081B6 /* STRulerImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STRulerImage.m; sourceTree = "<group>"; };
 		A17C0FFB17D66F4E006AE210 /* SliderTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SliderTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A17C0FFE17D66F4E006AE210 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A17C100017D66F4E006AE210 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -133,6 +136,8 @@
 				A17C101017D66F4E006AE210 /* Main.storyboard */,
 				A17C101617D66F4E006AE210 /* Images.xcassets */,
 				A17C100517D66F4E006AE210 /* Supporting Files */,
+				A112523E17D7A0A2005081B6 /* STRulerImage.h */,
+				A112523F17D7A0A2005081B6 /* STRulerImage.m */,
 			);
 			path = SliderTest;
 			sourceTree = "<group>";
@@ -267,6 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A112524017D7A0A2005081B6 /* STRulerImage.m in Sources */,
 				A17C101517D66F4E006AE210 /* STViewController.m in Sources */,
 				A17C103517D67053006AE210 /* STRulerScrollView.m in Sources */,
 				A17C100B17D66F4E006AE210 /* main.m in Sources */,

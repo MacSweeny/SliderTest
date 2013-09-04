@@ -10,6 +10,10 @@
 
 @interface STRulerScrollView : UIScrollView
 
+- (void)displayRulerWithStart:(int)start
+                          end:(int)end
+                       height:(CGFloat)height;
+
 - (void)setImageWithName:(NSString *)imageName;
 
 @end

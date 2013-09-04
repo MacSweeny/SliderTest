@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4504" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4488.2" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3734.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3715.3"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,55 +17,59 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kgH-gs-NCw" customClass="STRulerScrollView">
-                                <rect key="frame" x="0.0" y="165" width="320" height="238"/>
+                                <rect key="frame" x="0.0" y="234" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="0.66666666666666663" green="0.37465614971798922" blue="0.19274314001154336" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="238" id="Reb-s4-iI0"/>
+                                    <constraint firstAttribute="height" constant="100" id="Reb-s4-iI0"/>
                                 </constraints>
                             </scrollView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red-triangle.png" translatesAutoresizingMaskIntoConstraints="NO" id="vBG-WA-zBe">
-                                <rect key="frame" x="147" y="151" width="27" height="24"/>
+                                <rect key="frame" x="147" y="220" width="27" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="27" id="IfA-eo-o18"/>
                                     <constraint firstAttribute="height" constant="24" id="vl9-5d-X4v"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YEP-ZY-Dis">
-                                <rect key="frame" x="20" y="20" width="36" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YEP-ZY-Dis">
+                                <rect key="frame" x="20" y="20" width="100" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Ruler">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Add Ruler">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="rulerButtonUp:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="DDO-1w-bcw"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5SR-7v-mVn">
-                                <rect key="frame" x="254" y="20" width="39" height="30"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zjf-fC-RmI">
+                                <rect key="frame" x="20" y="138" width="280" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Other">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="otherButtonUp:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="l5z-jC-34Y"/>
-                                </connections>
-                            </button>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="74" id="g2Y-9q-TG5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.3091034386" green="0.90954752400000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.71821925951086962" green="0.71378737070076703" blue="0.69159300963841908" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="kgH-gs-NCw" secondAttribute="trailing" id="9wR-Zh-qwH"/>
+                            <constraint firstItem="vBG-WA-zBe" firstAttribute="top" secondItem="zjf-fC-RmI" secondAttribute="bottom" constant="8" symbolic="YES" id="LVO-pW-GXq"/>
                             <constraint firstItem="kgH-gs-NCw" firstAttribute="top" secondItem="vBG-WA-zBe" secondAttribute="bottom" constant="-10" id="Lry-L8-yFS"/>
                             <constraint firstItem="kgH-gs-NCw" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="Wip-Ep-fxJ"/>
+                            <constraint firstAttribute="trailing" secondItem="zjf-fC-RmI" secondAttribute="trailing" constant="20" id="Yzs-wO-erA"/>
+                            <constraint firstItem="zjf-fC-RmI" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="avu-Sp-QLm"/>
                             <constraint firstItem="kgH-gs-NCw" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="cGa-Zt-9Xv"/>
+                            <constraint firstItem="zjf-fC-RmI" firstAttribute="centerX" secondItem="vBG-WA-zBe" secondAttribute="centerX" id="pjH-ex-pS6"/>
                             <constraint firstAttribute="centerX" secondItem="vBG-WA-zBe" secondAttribute="centerX" id="zy2-lH-xWr"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="otherButton" destination="5SR-7v-mVn" id="bV9-FT-0Wf"/>
-                        <outlet property="rulerButton" destination="YEP-ZY-Dis" id="0cu-Pt-kAy"/>
                         <outlet property="rulerScrollView" destination="kgH-gs-NCw" id="Sn6-fz-glx"/>
+                        <outlet property="valueLabel" destination="zjf-fC-RmI" id="wM2-Zb-CJl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
