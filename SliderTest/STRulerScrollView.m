@@ -31,7 +31,7 @@
     if (self) {
         UIScrollView *scrollView = self;
         
-        
+        // set subviews...
         UIView *leftOffsetView = [[UIView alloc] init];
         [leftOffsetView setBackgroundColor:[UIColor purpleColor]];
         [scrollView addSubview:leftOffsetView];
@@ -53,18 +53,12 @@
         
         NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(scrollView, leftOffsetView, imageView, rightOffsetView);
         
-        //    [scrollView addConstraint:
-        //     [NSLayoutConstraint constraintWithItem:imageView
-        //                                  attribute:NSLayoutAttributeWidth
-        //                                  relatedBy:NSLayoutRelationEqual
-        //                                     toItem:nil
-        //                                  attribute:NSLayoutAttributeNotAnAttribute
-        //                                 multiplier:1
-        //                                   constant:image.size.width]];
-        
         // TODO :: To keep midpoint within mins and max ranges of slider... set offset views off negatively from superview
+        // ?? :: Must do this later, when min-max set ?? So maybe alter constraints... based on new values.
+        
         // [scrollView addConstraints:
         //  [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(-25)-[leftOffsetView][imageView][rightOffsetView]-(-25)-|"
+       
         [scrollView addConstraints:
          [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[leftOffsetView][imageView][rightOffsetView]|"
                                                  options:0
@@ -117,6 +111,7 @@
     UIImage *image = [UIImage imageNamed:imageName];
     [self.imageView setImage:image];
     
+// NOT NEEDED !?!
 //        [self addConstraint:
 //         [NSLayoutConstraint constraintWithItem:self.imageView
 //                                      attribute:NSLayoutAttributeWidth
