@@ -21,6 +21,10 @@
 		A17C102017D66F4E006AE210 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A17C100217D66F4E006AE210 /* UIKit.framework */; };
 		A17C102817D66F4E006AE210 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A17C102617D66F4E006AE210 /* InfoPlist.strings */; };
 		A17C102A17D66F4E006AE210 /* SliderTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A17C102917D66F4E006AE210 /* SliderTestTests.m */; };
+		A17C103517D67053006AE210 /* STRulerScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A17C103417D67053006AE210 /* STRulerScrollView.m */; };
+		A17C103C17D67E19006AE210 /* ruler-image.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A17C103B17D67E19006AE210 /* ruler-image.jpeg */; };
+		A17C104017D69AA7006AE210 /* red-triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = A17C103F17D69AA7006AE210 /* red-triangle.png */; };
+		A17C104217D6EDD3006AE210 /* yellow-ruler.png in Resources */ = {isa = PBXBuildFile; fileRef = A17C104117D6EDD3006AE210 /* yellow-ruler.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,11 @@
 		A17C102517D66F4E006AE210 /* SliderTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SliderTestTests-Info.plist"; sourceTree = "<group>"; };
 		A17C102717D66F4E006AE210 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A17C102917D66F4E006AE210 /* SliderTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SliderTestTests.m; sourceTree = "<group>"; };
+		A17C103317D67053006AE210 /* STRulerScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STRulerScrollView.h; sourceTree = "<group>"; };
+		A17C103417D67053006AE210 /* STRulerScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STRulerScrollView.m; sourceTree = "<group>"; };
+		A17C103B17D67E19006AE210 /* ruler-image.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ruler-image.jpeg"; sourceTree = "<group>"; };
+		A17C103F17D69AA7006AE210 /* red-triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-triangle.png"; sourceTree = "<group>"; };
+		A17C104117D6EDD3006AE210 /* yellow-ruler.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yellow-ruler.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,11 +121,16 @@
 		A17C100417D66F4E006AE210 /* SliderTest */ = {
 			isa = PBXGroup;
 			children = (
+				A17C103F17D69AA7006AE210 /* red-triangle.png */,
+				A17C104117D6EDD3006AE210 /* yellow-ruler.png */,
+				A17C103B17D67E19006AE210 /* ruler-image.jpeg */,
 				A17C100D17D66F4E006AE210 /* STAppDelegate.h */,
 				A17C100E17D66F4E006AE210 /* STAppDelegate.m */,
-				A17C101017D66F4E006AE210 /* Main.storyboard */,
+				A17C103317D67053006AE210 /* STRulerScrollView.h */,
+				A17C103417D67053006AE210 /* STRulerScrollView.m */,
 				A17C101317D66F4E006AE210 /* STViewController.h */,
 				A17C101417D66F4E006AE210 /* STViewController.m */,
+				A17C101017D66F4E006AE210 /* Main.storyboard */,
 				A17C101617D66F4E006AE210 /* Images.xcassets */,
 				A17C100517D66F4E006AE210 /* Supporting Files */,
 			);
@@ -229,8 +243,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A17C104017D69AA7006AE210 /* red-triangle.png in Resources */,
 				A17C101717D66F4E006AE210 /* Images.xcassets in Resources */,
 				A17C100917D66F4E006AE210 /* InfoPlist.strings in Resources */,
+				A17C103C17D67E19006AE210 /* ruler-image.jpeg in Resources */,
+				A17C104217D6EDD3006AE210 /* yellow-ruler.png in Resources */,
 				A17C101217D66F4E006AE210 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A17C101517D66F4E006AE210 /* STViewController.m in Sources */,
+				A17C103517D67053006AE210 /* STRulerScrollView.m in Sources */,
 				A17C100B17D66F4E006AE210 /* main.m in Sources */,
 				A17C100F17D66F4E006AE210 /* STAppDelegate.m in Sources */,
 			);
@@ -455,6 +473,7 @@
 				A17C102F17D66F4E006AE210 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A17C103017D66F4E006AE210 /* Build configuration list for PBXNativeTarget "SliderTestTests" */ = {
 			isa = XCConfigurationList;
@@ -463,6 +482,7 @@
 				A17C103217D66F4E006AE210 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
