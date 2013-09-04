@@ -30,8 +30,7 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    int value = self.rulerScrollView. contentOffset.x;
-    self.valueLabel.text = [NSString stringWithFormat:@"%i", value];
+    self.valueLabel.text = [NSString stringWithFormat:@"%i", self.rulerScrollView.value];
 }
 
 @end

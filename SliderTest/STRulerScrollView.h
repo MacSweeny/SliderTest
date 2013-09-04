@@ -10,6 +10,8 @@
 
 @interface STRulerScrollView : UIScrollView
 
+@property (readonly) NSInteger value;
+
 - (void)displayRulerWithStart:(int)start
                           end:(int)end
                        height:(CGFloat)height;

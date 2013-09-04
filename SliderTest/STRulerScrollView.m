@@ -23,6 +23,9 @@
 
 @property (nonatomic, strong) UIImageView *imageView;
 
+@property (nonatomic) NSInteger min;
+@property (nonatomic) NSInteger max;
+
 @end
 
 @implementation STRulerScrollView
@@ -110,6 +113,8 @@
 }
 
 - (void)displayRulerWithStart:(int)start end:(int)end height:(CGFloat)height {
+    self.min = start;
+    self.max = end;
     UIImage *image = [STRulerImage rulerImageWithStart:start end:end height:height];
     [self.imageView setImage:image];
     [self updateConstraints];
@@ -130,6 +135,10 @@
 //                                       constant:image.size.width]];
 //    
     [self updateConstraints];
+}
+
+- (NSInteger)value {
+    return MIN(self.max, MAX(self.min, self.contentOffset.x));
 }
 
 @end
