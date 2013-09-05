@@ -42,6 +42,9 @@
     if (self) {
         UIScrollView *scrollView = self;
         
+        [scrollView setShowsHorizontalScrollIndicator:NO];
+        [scrollView setShowsVerticalScrollIndicator:NO];
+        
         // set subviews...
         self.leftOffsetView = [[UIView alloc] init];
         UIView *leftOffsetView = self.leftOffsetView;

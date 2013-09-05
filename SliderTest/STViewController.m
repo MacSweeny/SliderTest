@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.rulerScrollView.delegate = self;
+    
+    [self rulerButtonUp:Nil];
 }
 
 - (void)didReceiveMemoryWarning {
