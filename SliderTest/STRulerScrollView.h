@@ -16,6 +16,12 @@
                           end:(int)end
                        height:(CGFloat)height;
 
+- (void)displayRulerWithStart:(NSInteger)start
+                          end:(NSInteger)end
+                          min:(NSInteger)min
+                          max:(NSInteger)max
+                       height:(CGFloat)height;
+
 - (void)setImageWithName:(NSString *)imageName;
 
 @end

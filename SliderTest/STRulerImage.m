@@ -20,13 +20,14 @@
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    for (int x = start ; x < end ; x++) {
-        if (x % 10 == 0) {
+    for (int value = start ; value < end ; value++) {
+        int x = value - start;
+        if (value % 10 == 0) {
             CGPoint lineStart = CGPointMake(x, 0);
-            CGFloat lineLength = x % 50 == 0 ? 40 : 20;
-            if (x % 100 == 0 && x != 0) {
+            CGFloat lineLength = value % 50 == 0 ? 40 : 20;
+            if (value % 100 == 0 && value != 0) {
                 lineLength = 60;
-                [self drawNumberRight:x
+                [self drawNumberRight:value
                              withRect:CGRectMake(x-100, 40, 95, 20)
                                 color:[UIColor blackColor]
                               context:context];
@@ -40,23 +41,25 @@
     }
     
     // start line and number
-    [self drawLineWithColor:[UIColor redColor]
-                  fromPoint:CGPointMake(start, 0)
-                    toPoint:CGPointMake(start, 60)
+    int x = 0;
+    [self drawLineWithColor:[UIColor blackColor]
+                  fromPoint:CGPointMake(x, 0)
+                    toPoint:CGPointMake(x, height)
                usingContext:context];
     [self drawNumberLeft:start
-                withRect:CGRectMake(start+5, 40, (100), 20)
-                   color:[UIColor redColor]
+                withRect:CGRectMake(x+5, 40, (100), 20)
+                   color:[UIColor blackColor]
                  context:context];
 
     // end line and number
-    [self drawLineWithColor:[UIColor redColor]
-                  fromPoint:CGPointMake(end, 0)
-                    toPoint:CGPointMake(end, 60)
+    x = end - start;
+    [self drawLineWithColor:[UIColor blackColor]
+                  fromPoint:CGPointMake(x, 0)
+                    toPoint:CGPointMake(x, height)
                usingContext:context];
     [self drawNumberRight:end
-                 withRect:CGRectMake(end-100, 40, 95, 20)
-                    color:[UIColor redColor]
+                 withRect:CGRectMake(x-100, 40, 95, 20)
+                    color:[UIColor blackColor]
                   context:context];
     
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();

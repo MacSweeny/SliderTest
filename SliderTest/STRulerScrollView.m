@@ -21,10 +21,16 @@
 
 @interface STRulerScrollView()
 
+@property (nonatomic, strong) UIView *leftOffsetView;
 @property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) UIView *rightOffsetView;
+
 
 @property (nonatomic) NSInteger min;
 @property (nonatomic) NSInteger max;
+
+@property (nonatomic, strong) NSLayoutConstraint *leftOffsetLeadingConstraint;
+@property (nonatomic, strong) NSLayoutConstraint *rightOffsetLeadingConstraint;
 
 @end
 
@@ -37,11 +43,13 @@
         UIScrollView *scrollView = self;
         
         // set subviews...
-        UIView *leftOffsetView = [[UIView alloc] init];
+        self.leftOffsetView = [[UIView alloc] init];
+        UIView *leftOffsetView = self.leftOffsetView;
         [leftOffsetView setBackgroundColor:[UIColor clearColor]];
         [scrollView addSubview:leftOffsetView];
         
-        UIView *rightOffsetView = [[UIView alloc] init];
+        self.rightOffsetView = [[UIView alloc] init];
+        UIView *rightOffsetView = self.rightOffsetView;
         [rightOffsetView setBackgroundColor:[UIColor clearColor]];
         [scrollView addSubview:rightOffsetView];
         
@@ -58,17 +66,12 @@
         
         NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(scrollView, leftOffsetView, imageView, rightOffsetView);
         
-        // TODO :: To keep midpoint within mins and max ranges of slider... set offset views off negatively from superview
-        // ?? :: Must do this later, when min-max set ?? So maybe alter constraints... based on new values.
-        
-        // [scrollView addConstraints:
-        //  [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(-25)-[leftOffsetView][imageView][rightOffsetView]-(-25)-|"
-       
         [scrollView addConstraints:
-         [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[leftOffsetView][imageView][rightOffsetView]|"
+         [NSLayoutConstraint constraintsWithVisualFormat:@"H:[leftOffsetView][imageView][rightOffsetView]"
                                                  options:0
                                                  metrics: 0
                                                    views:viewsDictionary]];
+        
         [scrollView addConstraints:
          [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[imageView]|"
                                                  options:0
@@ -112,11 +115,52 @@
     return self;
 }
 
-- (void)displayRulerWithStart:(int)start end:(int)end height:(CGFloat)height {
-    self.min = start;
-    self.max = end;
+- (void)displayRulerWithStart:(NSInteger)start
+                          end:(NSInteger)end
+                       height:(CGFloat)height {
+    [self displayRulerWithStart:start
+                            end:end
+                            min:start
+                            max:end
+                         height:height];
+}
+
+- (void)displayRulerWithStart:(int)start
+                          end:(int)end
+                          min:(NSInteger)min
+                          max:(NSInteger)max
+                       height:(CGFloat)height {
+    self.min = min;
+    self.max = max;
     UIImage *image = [STRulerImage rulerImageWithStart:start end:end height:height];
     [self.imageView setImage:image];
+    
+    [self removeConstraint:self.leftOffsetLeadingConstraint];
+    
+    self.leftOffsetLeadingConstraint =
+    [NSLayoutConstraint constraintWithItem:self.leftOffsetView
+                                 attribute:NSLayoutAttributeLeading
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self
+                                 attribute:NSLayoutAttributeLeft
+                                multiplier:1
+                                  constant:start-min];
+    
+    [self addConstraint:self.leftOffsetLeadingConstraint];
+    
+    [self removeConstraint:self.rightOffsetLeadingConstraint];
+    
+    self.rightOffsetLeadingConstraint =
+    [NSLayoutConstraint constraintWithItem:self.rightOffsetView
+                                 attribute:NSLayoutAttributeTrailing
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self
+                                 attribute:NSLayoutAttributeRight
+                                multiplier:1
+                                  constant:end-max];
+    
+    [self addConstraint:self.rightOffsetLeadingConstraint];
+    
     [self updateConstraints];
 }
 
@@ -138,7 +182,8 @@
 }
 
 - (NSInteger)value {
-    return MIN(self.max, MAX(self.min, self.contentOffset.x));
+    return MIN(self.max, MAX(self.min, self.contentOffset.x + self.min));
+    return self.contentOffset.x + self.min;
 }
 
 @end

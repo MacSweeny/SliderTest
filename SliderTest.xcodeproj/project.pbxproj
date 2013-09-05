@@ -129,6 +129,8 @@
 				A17C103B17D67E19006AE210 /* ruler-image.jpeg */,
 				A17C100D17D66F4E006AE210 /* STAppDelegate.h */,
 				A17C100E17D66F4E006AE210 /* STAppDelegate.m */,
+				A112523E17D7A0A2005081B6 /* STRulerImage.h */,
+				A112523F17D7A0A2005081B6 /* STRulerImage.m */,
 				A17C103317D67053006AE210 /* STRulerScrollView.h */,
 				A17C103417D67053006AE210 /* STRulerScrollView.m */,
 				A17C101317D66F4E006AE210 /* STViewController.h */,
@@ -136,8 +138,6 @@
 				A17C101017D66F4E006AE210 /* Main.storyboard */,
 				A17C101617D66F4E006AE210 /* Images.xcassets */,
 				A17C100517D66F4E006AE210 /* Supporting Files */,
-				A112523E17D7A0A2005081B6 /* STRulerImage.h */,
-				A112523F17D7A0A2005081B6 /* STRulerImage.m */,
 			);
 			path = SliderTest;
 			sourceTree = "<group>";
