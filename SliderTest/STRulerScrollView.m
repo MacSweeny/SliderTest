@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Andy Sweeny. All rights reserved.
 //
 
-#define SNAP_TO_GRID FALSE
-
 #import "STRulerScrollView.h"
 
 #import "STRulerImage.h"
@@ -179,8 +177,6 @@
     self.settingOffsetValue = NO;
 }
 
-#if SNAP_TO_GRID
-
 // Excessively elaborate rounding method...
 
 - (NSInteger)round:(NSInteger)toRound {
@@ -196,18 +192,20 @@
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    if (!decelerate) {
-        NSInteger newIndex = [self round:self.indexValue];
-        [self adjustIndexValue:newIndex informDelegate:YES];
+    if (self.snapsToGrid) {
+        if (!decelerate) {
+            NSInteger newIndex = [self round:self.indexValue];
+            [self adjustIndexValue:newIndex informDelegate:YES];
+        }
     }
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    NSInteger newIndex = [self round:self.indexValue];
-    [self adjustIndexValue:newIndex informDelegate:YES];
+    if (self.snapsToGrid) {
+        NSInteger newIndex = [self round:self.indexValue];
+        [self adjustIndexValue:newIndex informDelegate:YES];
+    }
 }
- 
-#endif // SNAP_TO_GRID
 
 - (NSInteger)indexValue {
     return MIN(self.max, MAX(self.min, self.contentOffset.x + self.min));

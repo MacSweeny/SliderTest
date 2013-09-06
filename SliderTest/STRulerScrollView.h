@@ -14,6 +14,7 @@
 
 @property (nonatomic) NSInteger indexValue;
 @property (nonatomic, weak) id<STRulerScrollViewDelegate> rulerScrollViewDelegate;
+@property (nonatomic) BOOL snapsToGrid;
 
 - (BOOL)numberWithinMinMaxRange:(NSInteger)number;
 

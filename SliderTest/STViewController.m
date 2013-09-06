@@ -123,4 +123,12 @@
     return YES;
 }
 
+- (IBAction)snapToGridValueChanged:(UISwitch *)sender {
+    if ([sender isOn]) {
+        self.rulerScrollView.snapsToGrid = YES;
+    } else {
+        self.rulerScrollView.snapsToGrid = NO;
+    }
+}
+
 @end

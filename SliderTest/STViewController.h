@@ -25,4 +25,6 @@
 
 - (IBAction)rulerButtonUp:(id)sender;
 
+- (IBAction)snapToGridValueChanged:(UISwitch *)sender;
+
 @end
