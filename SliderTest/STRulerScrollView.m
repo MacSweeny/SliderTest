@@ -214,9 +214,13 @@
     return self.contentOffset.x + self.min;
 }
 
-- (void)adjustIndexValue:(NSInteger)indexValue informDelegate:(BOOL)informDelegate {
-    if (self.min <= indexValue && indexValue <= self.max) {
-        CGPoint newContextOffset = CGPointMake(indexValue - self.min, self.contentOffset.y);
+- (void)adjustIndexValue:(NSInteger)newIndexValue informDelegate:(BOOL)informDelegate {
+    // if newIndexValue == existing then we actually wont scroll
+    // upon setting new offset... and things break.
+    if (self.min <= newIndexValue &&
+        newIndexValue <= self.max &&
+        newIndexValue != self.indexValue) {
+        CGPoint newContextOffset = CGPointMake(newIndexValue - self.min, self.contentOffset.y);
         if (!informDelegate) {
             self.settingOffsetValue = YES;
         }
