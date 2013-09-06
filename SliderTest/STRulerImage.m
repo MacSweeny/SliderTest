@@ -16,7 +16,8 @@
     
     CGSize size = CGSizeMake(end-start, height);
     
-    UIGraphicsBeginImageContext(size);
+//    UIGraphicsBeginImageContext(size);
+    UIGraphicsBeginImageContextWithOptions(size, NO, [UIScreen mainScreen].scale);
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     
@@ -63,7 +64,7 @@
                   context:context];
     
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    
+
     UIGraphicsEndImageContext();
     
     return image;
@@ -104,13 +105,9 @@
                   toPoint:(CGPoint)end
              usingContext:(CGContextRef)context {
     [color set];
-    /* Set the width for the line */
     CGContextSetLineWidth(context,1.0f);
-    /* Start the line at this point */
     CGContextMoveToPoint(context,start.x, start.y);
-    /* And end it at this point */
     CGContextAddLineToPoint(context,end.x, end.y);
-    /* Use the context's current color to draw the line */
     CGContextStrokePath(context);
 }
 

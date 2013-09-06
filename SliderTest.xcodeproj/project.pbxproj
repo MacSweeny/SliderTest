@@ -23,9 +23,7 @@
 		A17C102817D66F4E006AE210 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A17C102617D66F4E006AE210 /* InfoPlist.strings */; };
 		A17C102A17D66F4E006AE210 /* SliderTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A17C102917D66F4E006AE210 /* SliderTestTests.m */; };
 		A17C103517D67053006AE210 /* STRulerScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A17C103417D67053006AE210 /* STRulerScrollView.m */; };
-		A17C103C17D67E19006AE210 /* ruler-image.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A17C103B17D67E19006AE210 /* ruler-image.jpeg */; };
 		A17C104017D69AA7006AE210 /* red-triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = A17C103F17D69AA7006AE210 /* red-triangle.png */; };
-		A17C104217D6EDD3006AE210 /* yellow-ruler.png in Resources */ = {isa = PBXBuildFile; fileRef = A17C104117D6EDD3006AE210 /* yellow-ruler.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,9 +60,7 @@
 		A17C102917D66F4E006AE210 /* SliderTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SliderTestTests.m; sourceTree = "<group>"; };
 		A17C103317D67053006AE210 /* STRulerScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STRulerScrollView.h; sourceTree = "<group>"; };
 		A17C103417D67053006AE210 /* STRulerScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STRulerScrollView.m; sourceTree = "<group>"; };
-		A17C103B17D67E19006AE210 /* ruler-image.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ruler-image.jpeg"; sourceTree = "<group>"; };
 		A17C103F17D69AA7006AE210 /* red-triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-triangle.png"; sourceTree = "<group>"; };
-		A17C104117D6EDD3006AE210 /* yellow-ruler.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yellow-ruler.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,8 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				A17C103F17D69AA7006AE210 /* red-triangle.png */,
-				A17C104117D6EDD3006AE210 /* yellow-ruler.png */,
-				A17C103B17D67E19006AE210 /* ruler-image.jpeg */,
 				A17C100D17D66F4E006AE210 /* STAppDelegate.h */,
 				A17C100E17D66F4E006AE210 /* STAppDelegate.m */,
 				A112523E17D7A0A2005081B6 /* STRulerImage.h */,
@@ -251,8 +245,6 @@
 				A17C104017D69AA7006AE210 /* red-triangle.png in Resources */,
 				A17C101717D66F4E006AE210 /* Images.xcassets in Resources */,
 				A17C100917D66F4E006AE210 /* InfoPlist.strings in Resources */,
-				A17C103C17D67E19006AE210 /* ruler-image.jpeg in Resources */,
-				A17C104217D6EDD3006AE210 /* yellow-ruler.png in Resources */,
 				A17C101217D66F4E006AE210 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

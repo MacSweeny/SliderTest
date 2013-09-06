@@ -6,20 +6,13 @@
 //  Copyright (c) 2013 Andy Sweeny. All rights reserved.
 //
 
-/*
- Integrate ruler code.
- Constraints to limit slider to within Min & Max.
- Setup/Change Ruler method w/ start, end, min, max, etc.
- Property to get or set slider value.
- 
- ? Height, font, scale, colors ?
- */
+#define SNAP_TO_GRID FALSE
 
 #import "STRulerScrollView.h"
 
 #import "STRulerImage.h"
 
-@interface STRulerScrollView()
+@interface STRulerScrollView() <UIScrollViewDelegate>
 
 @property (nonatomic, strong) UIView *leftOffsetView;
 @property (nonatomic, strong) UIImageView *imageView;
@@ -29,6 +22,8 @@
 @property (nonatomic) NSInteger min;
 @property (nonatomic) NSInteger max;
 
+@property (nonatomic) BOOL settingOffsetValue;
+
 @property (nonatomic, strong) NSLayoutConstraint *leftOffsetLeadingConstraint;
 @property (nonatomic, strong) NSLayoutConstraint *rightOffsetLeadingConstraint;
 
@@ -36,11 +31,13 @@
 
 @implementation STRulerScrollView
 
+// ??? - Setup constraints in updateConstraints ???
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
         UIScrollView *scrollView = self;
+        scrollView.delegate = self;
         
         [scrollView setShowsHorizontalScrollIndicator:NO];
         [scrollView setShowsVerticalScrollIndicator:NO];
@@ -118,6 +115,10 @@
     return self;
 }
 
+- (BOOL)numberWithinMinMaxRange:(NSInteger)number {
+    return self.min <= number && number <= self.max;
+}
+
 - (void)displayRulerWithStart:(NSInteger)start
                           end:(NSInteger)end
                        height:(CGFloat)height {
@@ -167,26 +168,64 @@
     [self updateConstraints];
 }
 
-- (void)setImageWithName:(NSString *)imageName {
-    UIImage *image = [UIImage imageNamed:imageName];
-    [self.imageView setImage:image];
-    
-// NOT NEEDED !?!
-//        [self addConstraint:
-//         [NSLayoutConstraint constraintWithItem:self.imageView
-//                                      attribute:NSLayoutAttributeWidth
-//                                      relatedBy:NSLayoutRelationEqual
-//                                         toItem:nil
-//                                      attribute:NSLayoutAttributeNotAnAttribute
-//                                     multiplier:1
-//                                       constant:image.size.width]];
-//    
-    [self updateConstraints];
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if ([self.rulerScrollViewDelegate conformsToProtocol:@protocol(STRulerScrollViewDelegate)] &&
+        !self.settingOffsetValue) {
+        [self.rulerScrollViewDelegate rulerScrollViewDidChange:self];
+    }
 }
 
-- (NSInteger)value {
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+    self.settingOffsetValue = NO;
+}
+
+#if SNAP_TO_GRID
+
+// Excessively elaborate rounding method...
+
+- (NSInteger)round:(NSInteger)toRound {
+    NSDecimal toRoundDecimal = [[NSNumber numberWithInt:toRound] decimalValue];
+    NSDecimalNumber *toRoundDecimalNumber = [NSDecimalNumber decimalNumberWithDecimal:toRoundDecimal];
+    NSDecimalNumberHandler *handler = [NSDecimalNumberHandler decimalNumberHandlerWithRoundingMode:NSRoundBankers
+                                                                                             scale:-1
+                                                                                  raiseOnExactness:NO
+                                                                                   raiseOnOverflow:NO
+                                                                                  raiseOnUnderflow:NO
+                                                                               raiseOnDivideByZero:NO];
+    return [[toRoundDecimalNumber decimalNumberByRoundingAccordingToBehavior:handler] integerValue];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if (!decelerate) {
+        NSInteger newIndex = [self round:self.indexValue];
+        [self adjustIndexValue:newIndex informDelegate:YES];
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    NSInteger newIndex = [self round:self.indexValue];
+    [self adjustIndexValue:newIndex informDelegate:YES];
+}
+ 
+#endif // SNAP_TO_GRID
+
+- (NSInteger)indexValue {
     return MIN(self.max, MAX(self.min, self.contentOffset.x + self.min));
     return self.contentOffset.x + self.min;
+}
+
+- (void)adjustIndexValue:(NSInteger)indexValue informDelegate:(BOOL)informDelegate {
+    if (self.min <= indexValue && indexValue <= self.max) {
+        CGPoint newContextOffset = CGPointMake(indexValue - self.min, self.contentOffset.y);
+        if (!informDelegate) {
+            self.settingOffsetValue = YES;
+        }
+        [self setContentOffset:newContextOffset animated:YES];
+    }
+}
+
+- (void)setIndexValue:(NSInteger)indexValue {
+    [self adjustIndexValue:indexValue informDelegate:NO];
 }
 
 @end

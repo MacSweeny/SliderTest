@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol STRulerScrollViewDelegate;
+
 @interface STRulerScrollView : UIScrollView
 
-@property (readonly) NSInteger value;
+@property (nonatomic) NSInteger indexValue;
+@property (nonatomic, weak) id<STRulerScrollViewDelegate> rulerScrollViewDelegate;
+
+- (BOOL)numberWithinMinMaxRange:(NSInteger)number;
 
 - (void)displayRulerWithStart:(int)start
                           end:(int)end
@@ -22,6 +27,10 @@
                           max:(NSInteger)max
                        height:(CGFloat)height;
 
-- (void)setImageWithName:(NSString *)imageName;
+@end
+
+@protocol STRulerScrollViewDelegate <NSObject>
+
+- (void)rulerScrollViewDidChange:(STRulerScrollView *)rulerScrollView;
 
 @end

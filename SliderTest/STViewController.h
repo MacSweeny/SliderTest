@@ -14,13 +14,14 @@
 
 @property (weak, nonatomic) IBOutlet STRulerScrollView *rulerScrollView;
 
-@property (weak, nonatomic) IBOutlet UILabel *valueLabel;
+@property (weak, nonatomic) IBOutlet UITextField *indexValueTextField;
 
 @property (weak, nonatomic) IBOutlet UITextField *start;
 @property (weak, nonatomic) IBOutlet UITextField *end;
 @property (weak, nonatomic) IBOutlet UITextField *min;
 @property (weak, nonatomic) IBOutlet UITextField *max;
 
+- (IBAction)setIndexButtonUp:(id)sender;
 
 - (IBAction)rulerButtonUp:(id)sender;
 
